@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+// Load .env file
+dotenv.config();
+
+const mongoUrl = process.env.MONGO_URL;
 
 export const connectDb = async () => {
-  await mongoose
-    .connect(
-      "mongodb+srv://ArunChhabra:Chhabra367@cluster0.tycox9y.mongodb.net/fruitAi"
-    )
-    .then(() => console.log("DB connceted"));
+  await mongoose.connect(mongoUrl).then(() => console.log("DB connceted"));
 };
